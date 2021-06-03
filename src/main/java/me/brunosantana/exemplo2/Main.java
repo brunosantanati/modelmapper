@@ -36,10 +36,11 @@ public class Main {
         modelMapper.typeMap(ClasseA.class, ClasseB.class).addMappings(mapper -> {
             mapper.map(ClasseA::getDiferente1, ClasseB::setAlgo1);
             mapper.map(ClasseA::getDiferente2, ClasseB::setAlgo2);
+            mapper.map(src -> "uhuuuuu", ClasseB::setSemCorrespondencia); //deixar fixo direto no mapeamento
         });
 
         var b = modelMapper.map(a, ClasseB.class);
-        b.setSemCorrespondencia("uhuuuu");
+        //b.setSemCorrespondencia("uhuuuu");
 
         System.out.println(a);
         System.out.println(b);
